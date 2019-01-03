@@ -7,8 +7,8 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- * 
- * Copyright 2012-2019 the original author or authors.
+ *
+ * Copyright 2012-2018 the original author or authors.
  */
 package org.assertj.core.api;
 
@@ -56,6 +56,21 @@ public class FunctionAssert<T, R> extends AbstractFunctionLikeAssert<FunctionAss
       super(assertion, input);
     }
 
+    /**
+     * Verifies that {@link Function} evaluates the given {@code input} to {@code expectedResult}.
+     * <p>Example:</p>
+     * <pre><code class='java'>
+     * Function<Integer, String> function = i -> i.toString();
+     * // this assertion passes:
+     * assertThat(function).on(10).returns("10");
+     * // this assertion fails:
+     * assertThat(function).on(11).returns("10");
+     * </code></pre>
+     *
+     * @return {@code this} assertions object
+     * @throws AssertionError if {@code function} is {@code null}.
+     * @throws AssertionError if the actual {@code Function} does not return {@code expectedResult}.
+     */
     @Override
     public FunctionAssert<T, R> returns(R expectedResult) {
       return super.returns(expectedResult);
