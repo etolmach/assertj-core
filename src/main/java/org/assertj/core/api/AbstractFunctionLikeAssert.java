@@ -1,10 +1,10 @@
 package org.assertj.core.api;
 
-import org.assertj.core.util.VisibleForTesting;
+import static org.assertj.core.error.UnaryFunctionShouldReturn.shouldReturn;
 
 import java.util.function.Function;
 
-import static org.assertj.core.error.UnaryFunctionShouldReturn.shouldReturn;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * @author Evgeniy Tolmach

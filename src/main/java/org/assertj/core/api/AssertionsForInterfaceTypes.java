@@ -12,20 +12,24 @@
  */
 package org.assertj.core.api;
 
-import org.assertj.core.api.function.FunctionAssert;
-import org.assertj.core.util.CheckReturnValue;
-
 import java.nio.file.Path;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-import java.util.function.*;
+import java.util.function.DoublePredicate;
+import java.util.function.Function;
+import java.util.function.IntPredicate;
+import java.util.function.LongPredicate;
+import java.util.function.Predicate;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
+
+import org.assertj.core.api.function.FunctionAssert;
+import org.assertj.core.util.CheckReturnValue;
 
 /**
  * Entry point for assertion methods for different data types. Each method in this class is a static factory for the
