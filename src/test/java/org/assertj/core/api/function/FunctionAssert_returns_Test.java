@@ -17,6 +17,7 @@ import static org.assertj.core.util.FailureMessages.actualIsNull;
 import java.util.function.Function;
 
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.FunctionAssert;
 import org.junit.jupiter.api.Test;
 
 /**

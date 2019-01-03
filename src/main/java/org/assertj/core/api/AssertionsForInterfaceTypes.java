@@ -28,7 +28,6 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-import org.assertj.core.api.function.FunctionAssert;
 import org.assertj.core.util.CheckReturnValue;
 
 /**
