@@ -34,6 +34,7 @@ public class LongFunctionAssert_returns_Test {
   public static final String RESULT_2 = "456";
 
   public static final LongFunction<String> NULL_FUNCTION = null;
+  public static final LongFunction<String> NULL_RETURNING_FUNCTION = l -> null;
   public static final LongFunction<String> FUNCTION = Long::toString;
 
   @Test
@@ -43,6 +44,11 @@ public class LongFunctionAssert_returns_Test {
                                           .on(INPUT_1)
                                           .returns(RESULT_1))
               .withMessage(actualIsNull());
+  }
+
+  @Test
+  public void should_pass_when_null_expected() {
+    Assertions.assertThat(NULL_RETURNING_FUNCTION).on(INPUT_1).returns(null);
   }
 
   @Test

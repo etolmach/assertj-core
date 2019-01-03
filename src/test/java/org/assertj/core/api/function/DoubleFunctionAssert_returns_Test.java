@@ -15,9 +15,9 @@ package org.assertj.core.api.function;
 import static org.assertj.core.util.FailureMessages.actualIsNull;
 
 import java.util.function.DoubleFunction;
-import java.util.function.LongFunction;
 
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.DoubleFunctionAssert;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -34,6 +34,7 @@ public class DoubleFunctionAssert_returns_Test {
   public static final String RESULT_2 = "456.789";
 
   public static final DoubleFunction<String> NULL_FUNCTION = null;
+  public static final DoubleFunction<String> NULL_RETURNING_FUNCTION = d -> null;
   public static final DoubleFunction<String> FUNCTION = Double::toString;
 
   @Test
@@ -43,6 +44,11 @@ public class DoubleFunctionAssert_returns_Test {
                                           .on(INPUT_1)
                                           .returns(RESULT_1))
               .withMessage(actualIsNull());
+  }
+
+  @Test
+  public void should_pass_when_null_expected() {
+    Assertions.assertThat(NULL_RETURNING_FUNCTION).on(INPUT_1).returns(null);
   }
 
   @Test
