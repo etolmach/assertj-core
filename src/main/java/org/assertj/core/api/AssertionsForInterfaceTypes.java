@@ -20,6 +20,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.function.DoublePredicate;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.IntPredicate;
 import java.util.function.LongPredicate;
 import java.util.function.Predicate;
@@ -446,10 +447,21 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    *
    * @param actual the actual value.
    * @return the created assertion object.
-   * @since 3.10.0
+   * @since 3.12.0
    */
   public static <T, R> FunctionAssert assertThat(Function<T, R> actual) {
     return new FunctionAssert(actual);
+  }
+
+  /**
+   * Create assertion for {@link java.util.function.IntFunction}.
+   *
+   * @param actual the actual value.
+   * @return the created assertion object.
+   * @since 3.12.0
+   */
+  public static <R> IntFunctionAssert assertThat(IntFunction<R> actual) {
+    return new IntFunctionAssert(actual);
   }
 
 }

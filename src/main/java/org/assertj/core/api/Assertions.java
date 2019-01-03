@@ -62,6 +62,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.concurrent.atomic.AtomicStampedReference;
 import java.util.function.DoublePredicate;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.IntPredicate;
 import java.util.function.LongPredicate;
 import java.util.function.Predicate;
@@ -146,9 +147,21 @@ public class Assertions {
    * @param <T>    the input type of the {@link Function}.
    * @param <R>    the return type of the {@link Function}.
    * @return the created assertion object.
-   * @since 3.10.0
+   * @since 3.12.0
    */
   public static <T, R> FunctionAssert<T, R> assertThat(Function<T, R> actual) {
+    return AssertionsForInterfaceTypes.assertThat(actual);
+  }
+
+  /**
+   * Create assertion for {@link IntFunction}.
+   *
+   * @param actual the actual value.
+   * @param <R>    the return type of the {@link IntFunction}.
+   * @return the created assertion object.
+   * @since 3.12.0
+   */
+  public static <R> IntFunctionAssert<R> assertThat(IntFunction<R> actual) {
     return AssertionsForInterfaceTypes.assertThat(actual);
   }
 
