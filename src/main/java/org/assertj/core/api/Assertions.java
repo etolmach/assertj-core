@@ -76,6 +76,7 @@ import org.assertj.core.api.filter.Filters;
 import org.assertj.core.api.filter.InFilter;
 import org.assertj.core.api.filter.NotFilter;
 import org.assertj.core.api.filter.NotInFilter;
+import org.assertj.core.api.function.FunctionAssert;
 import org.assertj.core.condition.AllOf;
 import org.assertj.core.condition.AnyOf;
 import org.assertj.core.condition.DoesNotHave;
@@ -137,6 +138,18 @@ import org.assertj.core.util.introspection.Introspection;
  */
 @CheckReturnValue
 public class Assertions {
+
+  /**
+   * Create assertion for {@link Function}.
+   *
+   * @param actual the actual value.
+   * @param <T>    the type of the value contained in the {@link Function}.
+   * @return the created assertion object.
+   * @since 3.10.0
+   */
+  public static <T, R> FunctionAssert<T, R> assertThat(Function<T, R> actual) {
+    return AssertionsForInterfaceTypes.assertThat(actual);
+  }
 
   /**
    * Create assertion for {@link Predicate}.
