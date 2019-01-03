@@ -10,24 +10,24 @@ import static org.assertj.core.error.UnaryFunctionShouldReturn.shouldReturn;
  * @author Evgeniy Tolmach
  */
 
-public abstract class AbstractUnaryFunctionLikeAssert<SELF extends AbstractUnaryFunctionLikeAssert<SELF, FUNCTION, PRIMITIVE, RESULT>, FUNCTION, PRIMITIVE, RESULT> extends AbstractAssert<SELF, FUNCTION> {
+public abstract class AbstractFunctionLikeAssert<SELF extends AbstractFunctionLikeAssert<SELF, FUNCTION, INPUT, RESULT>, FUNCTION, INPUT, RESULT> extends AbstractAssert<SELF, FUNCTION> {
 
   @VisibleForTesting
-  final Function<PRIMITIVE, RESULT> function;
+  final Function<INPUT, RESULT> function;
 
-  protected AbstractUnaryFunctionLikeAssert(FUNCTION function, Function<PRIMITIVE, RESULT> wrappedFunction, Class<?> selfType) {
+  protected AbstractFunctionLikeAssert(FUNCTION function, Function<INPUT, RESULT> wrappedFunction, Class<?> selfType) {
     super(function, selfType);
     this.function = wrappedFunction;
   }
 
-  protected abstract static class On<SELF extends AbstractUnaryFunctionLikeAssert<SELF, FUNCTION, PRIMITIVE, RESULT>, FUNCTION, PRIMITIVE, RESULT> {
+  protected abstract static class On<SELF extends AbstractFunctionLikeAssert<SELF, FUNCTION, INPUT, RESULT>, FUNCTION, INPUT, RESULT> {
 
     @VisibleForTesting
     final SELF assertion;
     @VisibleForTesting
-    final PRIMITIVE input;
+    final INPUT input;
 
-    public On(SELF assertion, PRIMITIVE input) {
+    public On(SELF assertion, INPUT input) {
       this.assertion = assertion;
       this.input = input;
     }
