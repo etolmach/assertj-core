@@ -12,22 +12,20 @@
  */
 package org.assertj.core.api;
 
+import org.assertj.core.api.function.FunctionAssert;
+import org.assertj.core.util.CheckReturnValue;
+
 import java.nio.file.Path;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-import java.util.function.DoublePredicate;
-import java.util.function.IntPredicate;
-import java.util.function.LongPredicate;
-import java.util.function.Predicate;
+import java.util.function.*;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
-
-import org.assertj.core.util.CheckReturnValue;
 
 /**
  * Entry point for assertion methods for different data types. Each method in this class is a static factory for the
@@ -60,6 +58,7 @@ import org.assertj.core.util.CheckReturnValue;
  * @author William Delanoue
  * @author Turbo87
  * @author dorzey
+ * @author Evgeniy Tolmach
  */
 @CheckReturnValue
 public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
@@ -437,6 +436,17 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    */
   public static <RESULT> CompletableFutureAssert<RESULT> assertThat(CompletionStage<RESULT> actual) {
     return new CompletableFutureAssert<>(actual);
+  }
+
+  /**
+   * Create assertion for {@link java.util.function.Function}.
+   *
+   * @param actual the actual value.
+   * @return the created assertion object.
+   * @since 3.10.0
+   */
+  public static <T, R> FunctionAssert assertThat(Function<T, R> actual) {
+    return new FunctionAssert(actual);
   }
 
 }
