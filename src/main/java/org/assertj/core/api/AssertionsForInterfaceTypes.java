@@ -22,6 +22,7 @@ import java.util.function.DoublePredicate;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.IntPredicate;
+import java.util.function.LongFunction;
 import java.util.function.LongPredicate;
 import java.util.function.Predicate;
 import java.util.stream.DoubleStream;
@@ -462,6 +463,17 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    */
   public static <R> IntFunctionAssert assertThat(IntFunction<R> actual) {
     return new IntFunctionAssert(actual);
+  }
+
+  /**
+   * Create assertion for {@link java.util.function.LongFunction}.
+   *
+   * @param actual the actual value.
+   * @return the created assertion object.
+   * @since 3.12.0
+   */
+  public static <R> LongFunctionAssert assertThat(LongFunction<R> actual) {
+    return new LongFunctionAssert(actual);
   }
 
 }
