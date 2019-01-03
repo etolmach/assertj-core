@@ -60,6 +60,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.concurrent.atomic.AtomicStampedReference;
+import java.util.function.DoubleFunction;
 import java.util.function.DoublePredicate;
 import java.util.function.Function;
 import java.util.function.IntFunction;
@@ -175,6 +176,18 @@ public class Assertions {
    * @since 3.12.0
    */
   public static <R> LongFunctionAssert<R> assertThat(LongFunction<R> actual) {
+    return AssertionsForInterfaceTypes.assertThat(actual);
+  }
+
+  /**
+   * Create assertion for {@link DoubleFunction}.
+   *
+   * @param actual the actual value.
+   * @param <R>    the return type of the {@link DoubleFunction}.
+   * @return the created assertion object.
+   * @since 3.12.0
+   */
+  public static <R> DoubleFunctionAssert<R> assertThat(DoubleFunction<R> actual) {
     return AssertionsForInterfaceTypes.assertThat(actual);
   }
 

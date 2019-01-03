@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.function.DoubleFunction;
 import java.util.function.DoublePredicate;
 import java.util.function.Function;
 import java.util.function.IntFunction;
@@ -450,7 +451,7 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    * @return the created assertion object.
    * @since 3.12.0
    */
-  public static <T, R> FunctionAssert assertThat(Function<T, R> actual) {
+  public static <T, R> FunctionAssert<T, R> assertThat(Function<T, R> actual) {
     return new FunctionAssert(actual);
   }
 
@@ -461,7 +462,7 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    * @return the created assertion object.
    * @since 3.12.0
    */
-  public static <R> IntFunctionAssert assertThat(IntFunction<R> actual) {
+  public static <R> IntFunctionAssert<R> assertThat(IntFunction<R> actual) {
     return new IntFunctionAssert(actual);
   }
 
@@ -472,8 +473,19 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    * @return the created assertion object.
    * @since 3.12.0
    */
-  public static <R> LongFunctionAssert assertThat(LongFunction<R> actual) {
+  public static <R> LongFunctionAssert<R> assertThat(LongFunction<R> actual) {
     return new LongFunctionAssert(actual);
+  }
+
+  /**
+   * Create assertion for {@link java.util.function.DoubleFunction}.
+   *
+   * @param actual the actual value.
+   * @return the created assertion object.
+   * @since 3.12.0
+   */
+  public static <R> DoubleFunctionAssert<R> assertThat(DoubleFunction<R> actual) {
+    return new DoubleFunctionAssert(actual);
   }
 
 }

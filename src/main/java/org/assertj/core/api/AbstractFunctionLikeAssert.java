@@ -14,6 +14,7 @@ package org.assertj.core.api;
 
 import static org.assertj.core.error.UnaryFunctionShouldReturn.shouldReturn;
 
+import java.util.Objects;
 import java.util.function.Function;
 
 /**
@@ -91,7 +92,7 @@ public abstract class AbstractFunctionLikeAssert<SELF extends AbstractFunctionLi
     protected SELF returns(RESULT expectedResult) {
       this.assertion.isNotNull();
       RESULT actualResult = this.assertion.function.apply(input);
-      if (!actualResult.equals(expectedResult)) {
+      if (!Objects.equals(actualResult, expectedResult)) {
         this.assertion.throwAssertionError(shouldReturn(this.assertion.function, input, expectedResult, actualResult));
       }
       return this.assertion.myself;
